@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+</head>
+<body>
+<h2>Enter Your details</h2>
+<form id="userform">
+<label for="Name">Name:</label><br>
+<input type="text" id="name"name='name'placeholder="Enter Your NAME:"><br><br>
+<label for="email">Email:</label><br>
+<input type="text" id="email"name='email'placeholder="Enter Your Email:"><br><br>
+<label for="age">Age:</label><br>
+<input type="number" id="age"name='age'placeholder="Enter Your Age:"><br><br>
+<button  type="button" value="submit" onclick="ValidateForm()">Submit</button>
+</form>
+<h3>User Data Table</h3>
+<div id="tablecontainer"></div>
+<script>
+function ValidateForm(){
+    var email=document.getElementById('email').value;
+    var age=document.getElementById('age').value;
+    var name=document.getElementById('name').value;
+    if (name===""||email===""||age==="")
+   {
+        alert('Fill in your Missing Fields!');
+    }
+    else{ ValidateEmail() ;
+        ValidateAge()
+    }
+    function ValidateEmail(){
+    var email=document.getElementById('email').value;    
+    if (email.indexOf('@')<=0){
+        alert("Enter a valid Email Addres");
+       }}
+    function ValidateAge(){
+    var age=document.getElementById('age').value;
+    if (age<=0){
+        alert("Invalid Age!");
+    }
+    }
+    }
+    function displaydata(name,email,age){
+        var tableContainer=document.getElementById('tablecontainer');
+        var table=document.getElementById("usertable");
+        if(!table){
+            table=document.createElement('table');
+            table.id="usertable";
+            table.style.border="2px solid black";
+            var header=table.createTHEAD();
+            var tablerow=head.insertow(0);
+            var nameheader=document.createElement('th');
+            nameheader.innerText="name";
+            nameheader.style.border='1px solid black';
+            var emailheader=document.createElement('th');
+            emailheader.innerText="email";
+            emailheader.style.border='1px solid black';
+            var ageheader=document.createElement('th');
+            ageheader.innerText="age";
+            ageheader.style.border='1px solid black';
+            headerrow.appendChild(nameheader);
+            headerrow.appendChild(emailheader);
+            headerrow.appendChild(ageheader);
+            tableContainer.appendChild('table')
+        };
+        }
+</script>
+</body>
+</html>
